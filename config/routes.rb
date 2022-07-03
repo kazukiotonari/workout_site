@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions',
@@ -8,10 +9,10 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    root :to => "users/sessions#new"
     get "signup", :to => "users/registrations#new"
     get "login", :to => "users/sessions#new"
     delete "logout", :to => "users/sessions#destroy"
   end
+  resources :home
   resources :products
 end
