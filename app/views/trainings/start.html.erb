@@ -1,0 +1,22 @@
+<p>トレーニング開始画面(仮)</p>
+
+  <img id="kinnikun" src="/kinnikun.jpeg">
+
+  <script>
+    document.getElementById( "kinnikun" ).onclick = function( event ) {
+    var x = event.pageX ;	// 水平の位置座標
+    var y = event.pageY ;	// 垂直の位置座標
+
+    console.log("クリックした位置のX座標");
+    console.log(x);
+    console.log("クリックした位置のY座標");
+    console.log(y);
+
+    // メモ　顔の中心 233,301
+    // メモ 顔のてっぺん 233,191
+    if ((x - 233)*(x - 233) + (y - 301)*(y - 301) < 12100) {
+      console.log("顔がクリックされました")
+    }
+}
+  </script>
+
