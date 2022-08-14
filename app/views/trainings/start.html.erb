@@ -1,22 +1,46 @@
 <p>トレーニング開始画面(仮)</p>
+<div id="mouse_txt" style="position:absolute; visibility:hidden; font-size:0.8em; background-color:#FFFFFF; border-style:ridge;"></div>
 
-  <img id="kinnikun" src="/kinnikun.jpeg">
-
+<div style="text-align: center">
+  <img id="kinniku" src="/kinniku.png" width="1000px">
+</div>
+  
   <script>
-    document.getElementById( "kinnikun" ).onclick = function( event ) {
-    var x = event.pageX ;	// 水平の位置座標
-    var y = event.pageY ;	// 垂直の位置座標
+    document.getElementById( "kinniku" ).onclick = function( event ) {
+      var x = event.pageX ;	// 水平の位置座標s
+      var y = event.pageY ;	// 垂直の位置座標
 
-    console.log("クリックした位置のX座標");
-    console.log(x);
-    console.log("クリックした位置のY座標");
-    console.log(y);
+      console.log("クリックした位置のX座標");
+      console.log(x);
+      console.log("クリックした位置のY座標");
+      console.log(y);
 
-    // メモ　顔の中心 233,301
-    // メモ 顔のてっぺん 233,191
-    if ((x - 233)*(x - 233) + (y - 301)*(y - 301) < 12100) {
-      console.log("顔がクリックされました")
+      // メモ　顔の中心 233,301
+      // メモ 顔のてっぺん 233,191
+      if ((x - 184)*(x - 184) + (y - 250)*(y - 250) < 232) {
+        //window.location.href = "https://fbfdee68fd364ffea1261e6df44cc822.vfs.cloud9.ap-northeast-1.amazonaws.com"
+        console.log("肩がクリックされました")
+
+      }
     }
-}
+
+    const kinniku = document.getElementById("kinniku");
+    const mouse_txt = document.getElementById("mouse_txt");
+
+    kinniku.addEventListener("mousemove", function(event) {
+      var xx = event.pageX;
+      var yy = event.pageY;
+      if ((xx - 184)*(xx - 184) + (yy - 250)*(yy - 250) < 232) {
+        console.log("hogehoge")
+        mouse_txt.innerHTML = "ここは肩です";
+        mouse_txt.style.visibility = "visible"
+        mouse_txt.style.left = xx
+        mouse_txt.style.top = yy
+      } else {
+        mouse_txt.style.visibility = "hidden"
+      }
+    })
+    
+
   </script>
 

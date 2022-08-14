@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :videos
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions',
@@ -16,7 +17,8 @@ Rails.application.routes.draw do
     get 'users/:id/mypage', to: 'users#mypage'
     
   end
-  get 'trainings/start', to: 'trainings#start'
+  get 'training/start', to: 'trainings#start'
+  get 'shoulder_training', to: 'shoulder#shoulder_training'
 
   resources :home
   resources :products
