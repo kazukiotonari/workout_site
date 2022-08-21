@@ -7,18 +7,26 @@
   
   <script>
     document.getElementById( "kinniku" ).onclick = function( event ) {
-      var x = event.pageX ;	// 水平の位置座標s
-      var y = event.pageY ;	// 垂直の位置座標
+      var clickX = event.pageX ;
+	    var clickY = event.pageY ;
 
-      console.log("クリックした位置のX座標");
-      console.log(x);
-      console.log("クリックした位置のY座標");
-      console.log(y);
+	// 要素の位置を取得
+	    var clientRect = this.getBoundingClientRect() ;
+	    var positionX = clientRect.left + window.pageXOffset ;
+	    var positionY = clientRect.top + window.pageYOffset ;
+
+	// 要素内におけるクリック位置を計算
+	    var x = clickX - positionX ;
+	    var y = clickY - positionY ;
+      console.log("クリックした位置のX座標は")
+      console.log(x)
+      console.log("クリックした位置のY座標は")
+      console.log(y)
 
       // メモ　顔の中心 233,301
       // メモ 顔のてっぺん 233,191
-      if ((x - 184)*(x - 184) + (y - 250)*(y - 250) < 232) {
-        //window.location.href = "https://fbfdee68fd364ffea1261e6df44cc822.vfs.cloud9.ap-northeast-1.amazonaws.com"
+      if ((x - 172)*(x - 172) + (y - 191)*(y - 191) < 361) {
+        window.location.href = "https://fbfdee68fd364ffea1261e6df44cc822.vfs.cloud9.ap-northeast-1.amazonaws.com/shoulder_training"
         console.log("肩がクリックされました")
 
       }
@@ -28,14 +36,23 @@
     const mouse_txt = document.getElementById("mouse_txt");
 
     kinniku.addEventListener("mousemove", function(event) {
-      var xx = event.pageX;
-      var yy = event.pageY;
-      if ((xx - 184)*(xx - 184) + (yy - 250)*(yy - 250) < 232) {
+      var clickX = event.pageX ;
+	    var clickY = event.pageY ;
+
+	// 要素の位置を取得
+	    var clientRect = this.getBoundingClientRect() ;
+	    var positionX = clientRect.left + window.pageXOffset ;
+	    var positionY = clientRect.top + window.pageYOffset ;
+
+	// 要素内におけるクリック位置を計算
+	    var x = clickX - positionX ;
+	    var y = clickY - positionY ;
+      if ((x - 172)*(x - 172) + (y -191)*(y - 191) < 361) {
         console.log("hogehoge")
         mouse_txt.innerHTML = "ここは肩です";
         mouse_txt.style.visibility = "visible"
-        mouse_txt.style.left = xx
-        mouse_txt.style.top = yy
+        mouse_txt.style.left = x
+        mouse_txt.style.top = y
       } else {
         mouse_txt.style.visibility = "hidden"
       }
