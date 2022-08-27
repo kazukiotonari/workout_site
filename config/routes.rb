@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
   get 'training/start', to: 'trainings#start'
   get 'shoulder_training', to: 'shoulder#shoulder_training'
+  get 'abdominal_muscle_training', to: 'abdominal_muscle#abdominal_muscle_training'
 
   resources :home
   resources :products

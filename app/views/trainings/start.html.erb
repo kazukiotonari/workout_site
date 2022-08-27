@@ -6,16 +6,20 @@
 </div>
   
   <script>
+    // 定義
+    const kinniku = document.getElementById("kinniku");
+    const mouse_txt = document.getElementById("mouse_txt");
+
     document.getElementById( "kinniku" ).onclick = function( event ) {
       var clickX = event.pageX ;
 	    var clickY = event.pageY ;
 
-	// 要素の位置を取得
+	    // 要素の位置を取得
 	    var clientRect = this.getBoundingClientRect() ;
 	    var positionX = clientRect.left + window.pageXOffset ;
 	    var positionY = clientRect.top + window.pageYOffset ;
 
-	// 要素内におけるクリック位置を計算
+    	// 要素内におけるクリック位置を計算
 	    var x = clickX - positionX ;
 	    var y = clickY - positionY ;
       console.log("クリックした位置のX座標は")
@@ -23,33 +27,45 @@
       console.log("クリックした位置のY座標は")
       console.log(y)
 
-      // メモ　顔の中心 233,301
-      // メモ 顔のてっぺん 233,191
       if ((x - 172)*(x - 172) + (y - 191)*(y - 191) < 361) {
         window.location.href = "https://fbfdee68fd364ffea1261e6df44cc822.vfs.cloud9.ap-northeast-1.amazonaws.com/shoulder_training"
         console.log("肩がクリックされました")
-
+      } else if ((x - 348)*(x - 348) + (y - 189)*(y - 189) <100) {
+        window.location.href = "https://fbfdee68fd364ffea1261e6df44cc822.vfs.cloud9.ap-northeast-1.amazonaws.com/shoulder_training"
+        console.log("肩がクリックされました")
+      } else if ((x - 257)*(x - 257) + (y - 309)*(y - 309) <2500) {
+        window.location.href = "https://fbfdee68fd364ffea1261e6df44cc822.vfs.cloud9.ap-northeast-1.amazonaws.com/abdominal_muscle_training"
+        console.log("腹筋がクリックされました")
       }
+
     }
 
-    const kinniku = document.getElementById("kinniku");
-    const mouse_txt = document.getElementById("mouse_txt");
 
     kinniku.addEventListener("mousemove", function(event) {
       var clickX = event.pageX ;
 	    var clickY = event.pageY ;
 
-	// 要素の位置を取得
+	    // 要素の位置を取得
 	    var clientRect = this.getBoundingClientRect() ;
 	    var positionX = clientRect.left + window.pageXOffset ;
 	    var positionY = clientRect.top + window.pageYOffset ;
 
-	// 要素内におけるクリック位置を計算
+	    // 要素内におけるクリック位置を計算
 	    var x = clickX - positionX ;
 	    var y = clickY - positionY ;
+      
       if ((x - 172)*(x - 172) + (y -191)*(y - 191) < 361) {
-        console.log("hogehoge")
         mouse_txt.innerHTML = "ここは肩です";
+        mouse_txt.style.visibility = "visible"
+        mouse_txt.style.left = x
+        mouse_txt.style.top = y
+      } else if ((x - 348)*(x - 348) + (y -189)*(y - 189) < 100) {
+        mouse_txt.innerHTML = "ここは肩です";
+        mouse_txt.style.visibility = "visible"
+        mouse_txt.style.left = x
+        mouse_txt.style.top = y
+      } else if ((x - 348)*(x - 348) + (y -189)*(y - 189) < 100) {
+        mouse_txt.innerHTML = "ここは腹筋です";
         mouse_txt.style.visibility = "visible"
         mouse_txt.style.left = x
         mouse_txt.style.top = y
@@ -57,61 +73,6 @@
         mouse_txt.style.visibility = "hidden"
       }
     })
-    
-    //左肩の位置
-    document.getElementById( "kinniku" ).onclick = function( event ) {
-      var clickX = event.pageX ;
-	    var clickY = event.pageY ;
-
-	// 要素の位置を取得
-	    var clientRect = this.getBoundingClientRect() ;
-	    var positionX = clientRect.left + window.pageXOffset ;
-	    var positionY = clientRect.top + window.pageYOffset ;
-
-	// 要素内におけるクリック位置を計算
-	    var x = clickX - positionX ;
-	    var y = clickY - positionY ;
-      console.log("クリックした位置のX座標は")
-      console.log(x)
-      console.log("クリックした位置のY座標は")
-      console.log(y)
-
-      // メモ　顔の中心 233,301
-      // メモ 顔のてっぺん 233,191
-      if ((x - 172)*(x - 172) + (y - 191)*(y - 191) < 361) {
-        window.location.href = "https://fbfdee68fd364ffea1261e6df44cc822.vfs.cloud9.ap-northeast-1.amazonaws.com/shoulder_training"
-        console.log("肩がクリックされました")
-
-      }
-    }
-
-    const kinniku = document.getElementById("kinniku");
-    const mouse_txt = document.getElementById("mouse_txt");
-
-    kinniku.addEventListener("mousemove", function(event) {
-      var clickX = event.pageX ;
-	    var clickY = event.pageY ;
-
-	// 要素の位置を取得
-	    var clientRect = this.getBoundingClientRect() ;
-	    var positionX = clientRect.left + window.pageXOffset ;
-	    var positionY = clientRect.top + window.pageYOffset ;
-
-	// 要素内におけるクリック位置を計算
-	    var x = clickX - positionX ;
-	    var y = clickY - positionY ;
-      if ((x - 172)*(x - 172) + (y -191)*(y - 191) < 361) {
-        console.log("hogehoge")
-        mouse_txt.innerHTML = "ここは肩です";
-        mouse_txt.style.visibility = "visible"
-        mouse_txt.style.left = x
-        mouse_txt.style.top = y
-      } else {
-        mouse_txt.style.visibility = "hidden"
-      }
-    })
-    
-    
     
 
   </script>
