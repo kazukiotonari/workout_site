@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_02_020302) do
+ActiveRecord::Schema.define(version: 2022_08_13_111320) do
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
@@ -25,8 +25,20 @@ ActiveRecord::Schema.define(version: 2022_07_02_020302) do
     t.string "nickname"
     t.float "fat_percentage"
     t.float "height"
+    t.float "target_weight"
+    t.float "target_musclemass"
+    t.float "target_fat_percentage"
+    t.float "musclemass"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "part"
+    t.string "youtube_id"
+    t.string "title"
   end
 
 end
