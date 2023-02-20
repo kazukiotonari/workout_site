@@ -29,13 +29,17 @@
 
       if ((x - 172)*(x - 172) + (y - 191)*(y - 191) < 361) {
         window.location.href = "https://fbfdee68fd364ffea1261e6df44cc822.vfs.cloud9.ap-northeast-1.amazonaws.com/shoulder_training"
-        console.log("肩がクリックされました")
+        console.log("左肩がクリックされました")
       } else if ((x - 348)*(x - 348) + (y - 189)*(y - 189) <100) {
         window.location.href = "https://fbfdee68fd364ffea1261e6df44cc822.vfs.cloud9.ap-northeast-1.amazonaws.com/shoulder_training"
-        console.log("肩がクリックされました")
+        console.log("右肩がクリックされました")
       } else if ((x - 257)*(x - 257) + (y - 309)*(y - 309) <2500) {
         window.location.href = "https://fbfdee68fd364ffea1261e6df44cc822.vfs.cloud9.ap-northeast-1.amazonaws.com/abdominal_muscle_training"
         console.log("腹筋がクリックされました")
+      } else if ((x - 31)*(x - 31) + (y - 336)*(y - 336) <93025) {
+        window.location.href = "https://fbfdee68fd364ffea1261e6df44cc822.vfs.cloud9.ap-northeast-1.amazonaws.com/leg_training"
+        console.log("脚がクリックされました")
+       
       }
 
     }
@@ -53,7 +57,7 @@
 	    // 要素内におけるクリック位置を計算
 	    var x = clickX - positionX ;
 	    var y = clickY - positionY ;
-      
+	    
       if ((x - 172)*(x - 172) + (y -191)*(y - 191) < 361) {
         mouse_txt.innerHTML = "ここは肩です";
         mouse_txt.style.visibility = "visible"
@@ -64,7 +68,7 @@
         mouse_txt.style.visibility = "visible"
         mouse_txt.style.left = x
         mouse_txt.style.top = y
-      } else if ((x - 348)*(x - 348) + (y -189)*(y - 189) < 100) {
+      } else if ((x - 257 )*(x - 257) + (y - 309)*(y - 309) < 2500) {
         mouse_txt.innerHTML = "ここは腹筋です";
         mouse_txt.style.visibility = "visible"
         mouse_txt.style.left = x
